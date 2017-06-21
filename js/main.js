@@ -22,17 +22,9 @@ var home = function home() {
     </div>\
 </div>\
 <div class="row">\
-    <div class="col-12 review">\
-        <div class="position">\
-            <h4>“WOULDN\'T RECOMMEND THIS PLACE TO MY WORST ENEMY!!”<span class="tagline">- Mike & Jill - Sydney</span></h4>\
-        </div>\
-        <div class="position">\
-            <p>I\'d rather eat my beloved pet hamster Steve than frequent this shithole again.</p>\
-        </div>\
-        <div class="position">\
-            <p>Turned up and our table had been taken so they set us up a temporary one in the toilet. Half way through my meal someone taking a shit was out of toilet paper so they took my napkin to wipe their arse. I was only comped an ice cream for this level of fuckery!</p>\
-        </div>\
-    </div>\
+    <div class="col-12 review">\ '
+        + reviews(reviewList) +
+    '</div>\
 </div>\
 <div class="row">\
     <div class="col-12">\
@@ -82,6 +74,36 @@ var contact = function contact() {
                 </div>';
     return contactText;
 }
+
+const reviewList = [
+    { 
+        "review": "WOULDN\'T RECOMMEND THIS PLACE TO MY WORST ENEMY!!",
+        "by": "Mike & Jill",
+        "from": "Sydney"
+    },
+    {
+        "review": "I\'d rather eat my beloved pet hamster Steve than frequent this shithole again.",
+        "by": "Kevin",
+        "from": "Glasgow"
+    },
+    {
+        "review": "Turned up and our table had been taken so they set us up a temporary one in the toilet. Half way through my meal someone taking a shit was out of toilet paper so they took my napkin to wipe their arse. I was only comped an ice cream for this level of fuckery!",
+        "by": "Benny & Lisa",
+        "from": "Topeka"
+    }
+];
+
+const reviews = (db) => {
+    let text = "";
+    
+    db.forEach(item => {
+        text+= `<div class="position">\
+            <h4>“${item.review}”<span class="tagline">- ${item.by} - ${item.from}</span></h4>\
+        </div>\ `;
+    });
+    
+    return text;
+};
 
 var remove = function remove() {
     let el = document.getElementById('content');
