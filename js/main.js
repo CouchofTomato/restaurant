@@ -22,9 +22,9 @@ var home = function home() {
     </div>\
 </div>\
 <div class="row">\
-    <div class="col-12 review">\
+    <div class="col-12 review">\ '
          + reviews(reviewList) +
-    </div>\
+    '</div>\
 </div>\
 <div class="row">\
     <div class="col-12">\
