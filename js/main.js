@@ -76,7 +76,7 @@ var contact = function contact() {
     var contactText = '<div class="row">\
                     <div class="col-12">\
                         <div class="position">\
-                            <h1>Dont contact me</h1>\
+                            <h1>Don\'t contact me</h1>\
                         </div>\
                     </div>\
                 </div>';
