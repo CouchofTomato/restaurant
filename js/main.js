@@ -23,11 +23,7 @@ var home = function home() {
 </div>\
 <div class="row">\
     <div class="col-12 review">\ '
-<<<<<<< HEAD
-        + reviews(reviewList) +
-=======
          + reviews(reviewList) +
->>>>>>> 1342c50e94789c8101b8fc5cc8d6035090f9592a
     '</div>\
 </div>\
 <div class="row">\
