@@ -34,35 +34,41 @@ var home = function home() {
     </div>\
 </div>';
 return text;
-}
+};
 
-var menu = function menu() {
-    var menuText = '<div class="row menu">\
+const menuList = [
+    { 
+        "image": "barbie-small.jpeg",
+        "size": "Small",
+        "price": "100"
+    },
+    {
+        "image": "barbie-medium.png",
+        "size": "Medium",
+        "price": "200"
+    },
+    {
+        "image": "barbie.jpg",
+        "size": "Large",
+        "price": "300"
+    }
+];
+
+const menu = (db) => {
+    let text = "";
+    
+     db.forEach(item => {
+        text+= `'<div class="row menu">\
                     <div class="col-3">\
-                        <img src="images/barbie-small.jpeg">\
+                        <img src="images/${item.image}">\
                     </div>\
                     <div class="col-9">\
-                        <p>Shrimp on the Barbie - Small - $100</p>\
+                        <p>Shrimp on the Barbie - ${item.size} - $${item.price}</p>\
                     </div>\
-                </div>\
-                <div class="row menu">\
-                    <div class="col-3">\
-                        <img src="images/barbie-medium.png">\
-                    </div>\
-                    <div class="col-9">\
-                        <p>Shrimp on the Barbie - Medium - $200</p>\
-                    </div>\
-                </div>\
-                <div class="row menu">\
-                    <div class="col-3">\
-                        <img src="images/barbie.jpg">\
-                    </div>\
-                    <div class="col-9">\
-                        <p>Shrimp on the Barbie - Large - $300</p>\
-                    </div>\
-                </div>';
-    return menuText;
-}
+                </div>\ `;
+    });
+    return text;
+};
 
 var contact = function contact() {
     var contactText = '<div class="row">\
@@ -73,7 +79,7 @@ var contact = function contact() {
                     </div>\
                 </div>';
     return contactText;
-}
+};
 
 const reviewList = [
     { 
@@ -108,7 +114,7 @@ const reviews = (db) => {
 var remove = function remove() {
     let el = document.getElementById('content');
     el.innerHTML = '';
-}
+};
 
 var addListeners = function addListeners(listItems) {
     for (let i = 0; i < listItems.length; i++) {
@@ -122,7 +128,7 @@ var addListeners = function addListeners(listItems) {
                     break;
                 case 'Menu':
                     remove();
-                    el.innerHTML = menu();
+                    el.innerHTML = menu(menuList);
                     break;
                 case 'Contact':
                     remove();
@@ -131,7 +137,7 @@ var addListeners = function addListeners(listItems) {
             }
         });
     }
-}
+};
 
 
 document.addEventListener("DOMContentLoaded", function() {
